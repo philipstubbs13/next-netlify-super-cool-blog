@@ -1,11 +1,31 @@
 // @ts-nocheck
+import { useState } from 'react';
 import matter from 'gray-matter'
 import Layout from '../components/layout/Layout'
 import PostList from '../components/post-list/PostList';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faSearch } from '@fortawesome/free-solid-svg-icons';
+import SearchFilter from '../components/search-filter/SearchFilter';
 
 const Index = ({ posts, title, description, ...props }) => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [filteredPosts, setFilteredPosts] = useState(posts);
+
+  const handleSearchPosts = (event) => {
+    event.preventDefault();
+  
+    const postsToFilter = [...posts];
+    let postsToDisplay = postsToFilter;
+
+    if (searchTerm.trim().length) {
+      postsToDisplay = postsToFilter.filter(post => post.frontmatter.title.toLowerCase().includes(searchTerm.toLowerCase()) || post.frontmatter.author.toLowerCase().includes(searchTerm.toLowerCase()));
+    }
+
+    setFilteredPosts(postsToDisplay);
+  };
+
+  const handleChangeSearchFilter = (event) => {
+    setSearchTerm(event.target.value);
+  }
+
   return (
     <Layout pageTitle={title}>
       <div className="container-fluid">
@@ -27,24 +47,18 @@ const Index = ({ posts, title, description, ...props }) => {
       <div className="container-fluid">
         <div className="row">
           <div className="col-8">
-             <PostList posts={posts} />
+             <PostList posts={filteredPosts} />
           </div>
           <div className="col-4">
             <div className="card">
               <h2 className="card-title">
                 Search
               </h2>
-              <form className="form-inline" action="..." method="...">
-                <div className="input-group">
-                  <input type="text" className="form-control" placeholder="Search posts" required="required" />
-                  <div className="input-group-append">
-                    <button className="btn" type="submit">
-                      <FontAwesomeIcon icon={faSearch} style={{ width: 15 }} />
-                      <span className="sr-only">Search docs</span>
-                    </button>
-                  </div>
-                </div>
-              </form>
+              <SearchFilter
+                handleChange={handleChangeSearchFilter}
+                handleSubmit={handleSearchPosts}
+                placeholder="Search posts by title or author"
+              />
             </div>
           </div>
         </div>

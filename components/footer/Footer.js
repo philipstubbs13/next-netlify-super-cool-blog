@@ -5,6 +5,8 @@ import { faTiktok, faTwitter, faFacebook, faGithub, faLinkedin, faInstagram } fr
 
 export default function Footer({ darkMode }) {
   const containerClasses = darkMode ? "page-wrapper with-navbar-fixed-bottom dark-mode" : "page-wrapper with-navbar-fixed-bottom";
+  const copyrightYear = new Date().getFullYear();
+  const copyrightText = `${copyrightYear} chillin' with phil`
 
   return (
     <div className={containerClasses}>
@@ -42,7 +44,7 @@ export default function Footer({ darkMode }) {
           </a>
         </div>
         <span className="navbar-text ml-auto">
-          &copy; 2021 chillin' with phil
+          &copy; {copyrightText}
         </span>
       </nav>
     </div>
