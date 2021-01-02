@@ -1,0 +1,5 @@
+// @ts-nocheck
+
+export default function MyApp({ Component, pageProps }) {
+  return  <Component {...pageProps} />
+}
