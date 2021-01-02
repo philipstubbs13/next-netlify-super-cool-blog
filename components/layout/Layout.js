@@ -1,12 +1,12 @@
 // @ts-nocheck
 import { useState } from 'react';
 import Head from 'next/head'
-import Header from '../header/Header'
-import Footer from '../footer/Footer';
+import Header from '@components/header/Header'
+import Footer from '@components/footer/Footer';
 
 export default function Layout({ children, pageTitle, ...props }) {
-  const [darkMode, setDarkMode] = useState(true);
-  const containerClasses = darkMode ? "dark-mode" : "";
+  const [isDarkMode, setIsDarkMode] = useState(true);
+  const containerClasses = isDarkMode ? "dark-mode" : "";
 
   return (
     <div className={containerClasses}>
@@ -18,10 +18,10 @@ export default function Layout({ children, pageTitle, ...props }) {
         <script defer src="/halfmoon.min.js"></script>
       </Head>
       <section className="layout">
-        <Header toggleDarkMode={() => setDarkMode(!darkMode)} darkMode={darkMode} />
+        <Header toggleDarkMode={() => setIsDarkMode(!isDarkMode)} isDarkMode={isDarkMode} />
         <div>{children}</div>
       </section>
-      <Footer darkMode={darkMode} />
+      <Footer isDarkMode={isDarkMode} />
     </div>
   )
 }

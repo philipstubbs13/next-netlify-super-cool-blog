@@ -1,5 +1,5 @@
 // @ts-nocheck
-import Layout from '../components/layout/Layout'
+import Layout from '@components/layout/Layout'
 
 const About = ({ title, description, ...props }) => {
   return (

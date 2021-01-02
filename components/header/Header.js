@@ -3,8 +3,8 @@ import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
 
-export default function Header({ toggleDarkMode, darkMode }) {
-  const toggleModeButtonIcon = darkMode ? faSun : faMoon;
+export default function Header({ toggleDarkMode, isDarkMode }) {
+  const toggleModeButtonIcon = isDarkMode ? faSun : faMoon;
 
   return (
     <>

@@ -1,11 +1,11 @@
 // @ts-nocheck
 import { useState } from 'react';
 import matter from 'gray-matter'
-import Layout from '../components/layout/Layout'
-import PostList from '../components/post-list/PostList';
-import SearchFilter from '../components/search-filter/SearchFilter';
+import Layout from '@components/layout/Layout'
+import PostList from '@components/post-list/PostList';
+import SearchFilter from '@components/search-filter/SearchFilter';
 
-const Index = ({ posts, title, description, ...props }) => {
+const Index = ({ posts, title, description }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredPosts, setFilteredPosts] = useState(posts);
 
@@ -47,7 +47,7 @@ const Index = ({ posts, title, description, ...props }) => {
       <div className="container-fluid">
         <div className="row">
           <div className="col-8">
-             <PostList posts={filteredPosts} />
+             <PostList posts={filteredPosts} searchTerm={searchTerm} />
           </div>
           <div className="col-4">
             <div className="card">

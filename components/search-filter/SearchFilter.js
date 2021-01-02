@@ -11,7 +11,6 @@ return (
       <div className="input-group-append">
         <button className="btn" onClick={handleSubmit}>
           <FontAwesomeIcon icon={faSearch} className="searchIcon" />
-          <span className="sr-only">Search docs</span>
         </button>
       </div>
     </div>
