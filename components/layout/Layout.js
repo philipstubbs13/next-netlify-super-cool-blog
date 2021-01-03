@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import Head from 'next/head'
 import Header from '@components/header/Header'
 import Footer from '@components/footer/Footer';
-import { initGA, logPageView } from '../../util/analytics';
+import { initGA, logPageView } from '@utils/analytics';
 
 export default function Layout({ children, pageTitle, ...props }) {
   const [isDarkMode, setIsDarkMode] = useState(true);
