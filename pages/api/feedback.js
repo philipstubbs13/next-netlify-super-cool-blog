@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { connectToDatabase } from "../../util/mongodb";
+import { connectToDatabase } from "@utils/mongodb";
 import nextConnect from 'next-connect';
 
 const handler = nextConnect();
