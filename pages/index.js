@@ -8,6 +8,13 @@ import SearchFilter from '@components/search-filter/SearchFilter';
 const Index = ({ posts, title, description }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredPosts, setFilteredPosts] = useState(posts);
+   const [values, setValues] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
+
+  console.log(values)
 
   const handleSearchPosts = (event) => {
     event.preventDefault();
@@ -25,6 +32,35 @@ const Index = ({ posts, title, description }) => {
   const handleChangeSearchFilter = (event) => {
     setSearchTerm(event.target.value);
   }
+
+  const encode = (data) => {
+    return Object.keys(data)
+        .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+        .join("&");
+  }
+
+  const handleSubmit = e => {
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "contact", ...values })
+    })
+      .then(() => {
+        alert("Success!")
+        setValues({
+          name: '',
+          email: '',
+          message: ''
+        })
+      })
+      .catch(error => alert(error));
+
+    e.preventDefault();
+  };
+
+   const handleChange =  (event) => {
+    setValues({ ...values, [event.target.name]: event.target.value });
+  };
 
   return (
     <Layout pageTitle={title}>
@@ -59,6 +95,33 @@ const Index = ({ posts, title, description }) => {
                 handleSubmit={handleSearchPosts}
                 placeholder="Search posts by title or author"
               />
+            </div>
+            <div className="card">
+              <h2 className="card-title">
+                Feedback
+              </h2>
+              {/* A little help for the Netlify bots if you're not using a SSG */}
+              <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+                <input type="text" name="name" />
+                <input type="email" name="email" />
+                <textarea name="message"></textarea>
+              </form>
+              <form name="contact" method="post" onSubmit={handleSubmit}>
+                <input type="hidden" name="form-name" value="contact" />
+                <div className="input-group d-flex flex-column mt-10">
+                  <label>Name</label>
+                  <input type="text" class="form-control" placeholder="Name" name="name" value={values.name} onChange={handleChange} />
+                </div>
+                <div className="input-group d-flex flex-column mt-10">
+                  <label>Email</label>
+                  <input type="email" class="form-control" placeholder="Email" name="email" value={values.email} onChange={handleChange}  />
+                </div>
+                <div className="input-group d-flex flex-column mt-10">
+                  <label>Message</label>
+                  <textarea class="form-control" placeholder="Message" name="message" value={values.message} onChange={handleChange} />
+                </div>
+                <button type="submit" className="btn mt-10">Send Feedback</button>
+              </form>
             </div>
           </div>
         </div>
