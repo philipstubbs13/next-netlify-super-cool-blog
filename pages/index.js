@@ -4,17 +4,17 @@ import matter from 'gray-matter'
 import Layout from '@components/layout/Layout'
 import PostList from '@components/post-list/PostList';
 import SearchFilter from '@components/search-filter/SearchFilter';
+import Radio from '@components/radio/Radio';
 
-const Index = ({ posts, title, description }) => {
+const Index = ({ posts, title, description, isConnected }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredPosts, setFilteredPosts] = useState(posts);
    const [values, setValues] = useState({
     name: '',
     email: '',
     message: '',
+    type: 'bug',
   });
-
-  console.log(values)
 
   const handleSearchPosts = (event) => {
     event.preventDefault();
@@ -33,30 +33,23 @@ const Index = ({ posts, title, description }) => {
     setSearchTerm(event.target.value);
   }
 
-  const encode = (data) => {
-    return Object.keys(data)
-        .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-        .join("&");
-  }
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
-  const handleSubmit = e => {
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact", ...values })
+    const res = await fetch('/api/feedback', {
+      method: 'post',
+      body: JSON.stringify(values)
     })
-      .then(() => {
-        alert("Success!")
-        setValues({
-          name: '',
-          email: '',
-          message: ''
-        })
+    
+    if (res.status === 200) {
+      setValues({
+        name: '',
+        email: '',
+        message: '',
+        type: 'bug',
       })
-      .catch(error => alert(error));
-
-    e.preventDefault();
-  };
+    }
+  }
 
    const handleChange =  (event) => {
     setValues({ ...values, [event.target.name]: event.target.value });
@@ -98,23 +91,32 @@ const Index = ({ posts, title, description }) => {
             </div>
             <div className="card">
               <h2 className="card-title">
-                Feedback
+                Share Your Feedback
               </h2>
+              <p>
+                Found a bug? Have a suggestion? Want to collab? Fill out the form, and I'll take a look.
+              </p>
               <form name="contact" method="post" onSubmit={handleSubmit}>
-                <input type="hidden" name="form-name" value="contact" />
-                <div className="input-group d-flex flex-column mt-10">
+                 <div className="d-flex flex-column mb-10 mt-20">
+                  <label>What type of feedback are you submitting?</label>
+                </div>
+                <Radio name="type" value="bug" handleChange={handleChange} checked={values.type === 'bug'} label="Bug" />
+                <Radio name="type" value="suggestion" handleChange={handleChange} checked={values.type === 'suggestion'} label="Suggestion" />
+                <Radio name="type" value="collab" handleChange={handleChange} checked={values.type === 'collab'} label="Collab" />
+                <Radio name="type" value="other" handleChange={handleChange} checked={values.type === 'other'} label="Other" />
+                <div className="input-group d-flex flex-column mt-20">
                   <label>Name</label>
-                  <input type="text" class="form-control" placeholder="Name" name="name" value={values.name} onChange={handleChange} />
+                  <input type="text" className="form-control" placeholder="Name" name="name" value={values.name} onChange={handleChange} />
                 </div>
-                <div className="input-group d-flex flex-column mt-10">
+                <div className="input-group d-flex flex-column mt-20">
                   <label>Email</label>
-                  <input type="email" class="form-control" placeholder="Email" name="email" value={values.email} onChange={handleChange}  />
+                  <input type="email" className="form-control" placeholder="Email" name="email" value={values.email} onChange={handleChange}  />
                 </div>
-                <div className="input-group d-flex flex-column mt-10">
-                  <label>Message</label>
-                  <textarea class="form-control" placeholder="Message" name="message" value={values.message} onChange={handleChange} />
+                <div className="input-group d-flex flex-column mt-20">
+                  <label>Details</label>
+                  <textarea className="form-control" placeholder="Write here" name="message" value={values.message} onChange={handleChange} />
                 </div>
-                <button type="submit" className="btn mt-10">Send Feedback</button>
+                <button type="submit" className="btn mt-10">Send</button>
               </form>
             </div>
           </div>

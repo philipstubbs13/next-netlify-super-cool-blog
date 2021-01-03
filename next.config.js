@@ -1,3 +1,4 @@
+// @ts-nocheck
 module.exports = {
   target: 'serverless',
   webpack: function (config) {
