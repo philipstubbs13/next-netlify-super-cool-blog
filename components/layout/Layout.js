@@ -1,12 +1,21 @@
 // @ts-nocheck
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Head from 'next/head'
 import Header from '@components/header/Header'
 import Footer from '@components/footer/Footer';
+import { initGA, logPageView } from '../../util/analytics';
 
 export default function Layout({ children, pageTitle, ...props }) {
   const [isDarkMode, setIsDarkMode] = useState(true);
   const containerClasses = isDarkMode ? "dark-mode" : "";
+
+  useEffect(() => {
+    if (!window.GA_INITIALIZED) {
+      initGA()
+      window.GA_INITIALIZED = true
+    }
+    logPageView()
+  }, [])
 
   return (
     <div className={containerClasses}>
