@@ -4,17 +4,10 @@ import matter from 'gray-matter'
 import Layout from '@components/layout/Layout'
 import PostList from '@components/post-list/PostList';
 import SearchFilter from '@components/search-filter/SearchFilter';
-import Radio from '@components/radio/Radio';
 
-const Index = ({ posts, title, description, isConnected }) => {
+const Index = ({ posts, title, description }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredPosts, setFilteredPosts] = useState(posts);
-   const [values, setValues] = useState({
-    name: '',
-    email: '',
-    message: '',
-    type: 'bug',
-  });
 
   const handleSearchPosts = (event) => {
     event.preventDefault();
@@ -32,28 +25,6 @@ const Index = ({ posts, title, description, isConnected }) => {
   const handleChangeSearchFilter = (event) => {
     setSearchTerm(event.target.value);
   }
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-
-    const res = await fetch('/api/feedback', {
-      method: 'post',
-      body: JSON.stringify(values)
-    })
-    
-    if (res.status === 200) {
-      setValues({
-        name: '',
-        email: '',
-        message: '',
-        type: 'bug',
-      })
-    }
-  }
-
-   const handleChange =  (event) => {
-    setValues({ ...values, [event.target.name]: event.target.value });
-  };
 
   return (
     <Layout pageTitle={title}>
@@ -94,30 +65,11 @@ const Index = ({ posts, title, description, isConnected }) => {
                 Share Your Feedback
               </h2>
               <p>
-                Found a bug? Have a suggestion? Want to collab? Fill out the form, and I'll take a look.
+                Found a bug? Have a suggestion? Want to collab? 
               </p>
-              <form name="contact" method="post" onSubmit={handleSubmit}>
-                 <div className="d-flex flex-column mb-10 mt-20">
-                  <label>What type of feedback are you submitting?</label>
-                </div>
-                <Radio name="type" value="bug" handleChange={handleChange} checked={values.type === 'bug'} label="Bug" />
-                <Radio name="type" value="suggestion" handleChange={handleChange} checked={values.type === 'suggestion'} label="Suggestion" />
-                <Radio name="type" value="collab" handleChange={handleChange} checked={values.type === 'collab'} label="Collab" />
-                <Radio name="type" value="other" handleChange={handleChange} checked={values.type === 'other'} label="Other" />
-                <div className="input-group d-flex flex-column mt-20">
-                  <label>Name</label>
-                  <input type="text" className="form-control" placeholder="Name" name="name" value={values.name} onChange={handleChange} />
-                </div>
-                <div className="input-group d-flex flex-column mt-20">
-                  <label>Email</label>
-                  <input type="email" className="form-control" placeholder="Email" name="email" value={values.email} onChange={handleChange}  />
-                </div>
-                <div className="input-group d-flex flex-column mt-20">
-                  <label>Details</label>
-                  <textarea className="form-control" placeholder="Write here" name="message" value={values.message} onChange={handleChange} />
-                </div>
-                <button type="submit" className="btn mt-10">Send</button>
-              </form>
+              <p>
+                Send me an <a href="mailto:philipstubbs13@gmail.com" target="_blank">email</a>, and I'll take a look.
+              </p>
             </div>
           </div>
         </div>

@@ -1,4 +1,7 @@
 // @ts-nocheck
+// https://developer.mongodb.com/how-to/nextjs-building-modern-applications
+// https://developer.mongodb.com/how-to/nextjs-with-mongodb
+// https://github.com/kukicado/nextjs-with-mongodb
 import { MongoClient } from 'mongodb'
 
 let uri = process.env.MONGODB_URI
