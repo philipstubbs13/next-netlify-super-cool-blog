@@ -100,12 +100,6 @@ const Index = ({ posts, title, description }) => {
               <h2 className="card-title">
                 Feedback
               </h2>
-              {/* A little help for the Netlify bots if you're not using a SSG */}
-              <form name="contact" netlify netlify-honeypot="bot-field" hidden>
-                <input type="text" name="name" />
-                <input type="email" name="email" />
-                <textarea name="message"></textarea>
-              </form>
               <form name="contact" method="post" onSubmit={handleSubmit}>
                 <input type="hidden" name="form-name" value="contact" />
                 <div className="input-group d-flex flex-column mt-10">
