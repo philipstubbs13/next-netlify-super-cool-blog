@@ -9,19 +9,25 @@ import Layout from '@components/layout/Layout';
 const FourOhFour = ({ title, description }) => {
     return (
         <React.Fragment>
-            <Layout pageTitle={`${title} | About`} description={description}>
-                <div className="container-md d-flex justify-content-center">
-                    <div className="row">
-                        <div className="col-12">
-                            <h1 className="title text-center">404 - Page Not Found</h1>
-                            <p className="mt-50 text-center">
-                                Oops! The page you are looking for was either deleted, moved, or
-                                does not exist.
-                            </p>
+            <Layout pageTitle={`${title}`} description={description}>
+                <div className="container" style={{ width: '50%' }}>
+                    <div className="d-flex flex-column">
+                        <h1 className="title text-center">404 - Page Not Found</h1>
+                        <p className="mt-50 text-center">
+                            Oops! The page you are looking for was either deleted, moved, or does
+                            not exist.
+                        </p>
+                        <p className="mt-20 text-center">
+                            Double check that the url is correct or try heading back to the home
+                            page.
+                        </p>
+                        <p className="text-center">
                             <Link href="/">
-                                <a className="mt-20">Go back home</a>
+                                <button className="btn btn-primary mt-20" style={{ width: '25%' }}>
+                                    Go back home
+                                </button>
                             </Link>
-                        </div>
+                        </p>
                     </div>
                 </div>
             </Layout>

@@ -1,7 +1,7 @@
 ---
 title: 'First post test'
 author: 'phil'
-date: 'January 1, 2021'
+date: '01/01/21'
 tags: 'TikTok,Test,cfp'
 ---
 

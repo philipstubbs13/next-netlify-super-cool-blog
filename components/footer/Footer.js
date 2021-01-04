@@ -24,10 +24,13 @@ export default function Footer({ isDarkMode }) {
             <nav className="navbar navbar-fixed-bottom h-50">
                 <div className="navbar-content">
                     <Link href="/">
-                        <button className="btn-link btn btn-lg mr-20">Home</button>
+                        <button className="btn-link btn btn-lg mr-5">Home</button>
                     </Link>
                     <Link href="/about">
-                        <button className="btn-link btn btn-lg mr-20">About</button>
+                        <button className="btn-link btn btn-lg mr-5">About</button>
+                    </Link>
+                    <Link href="/contribute">
+                        <button className="btn-link btn btn-lg mr-5">Contribute</button>
                     </Link>
                 </div>
                 <div className="ml-auto">

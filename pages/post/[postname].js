@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import Link from 'next/link';
 import matter from 'gray-matter';
 import ReactMarkdown from 'react-markdown';
+import { faTwitter, faFacebook } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import Layout from '../../components/layout/Layout';
 
@@ -33,15 +35,29 @@ export default function BlogPost({ siteTitle, frontmatter, markdownBody, postnam
                 <div className="border-top">
                     <p className="font-size-18">Share to:</p>
                     <div className="d-flex">
-                        <button className="btn btn-lg btn-link" href={tweetUrl} target="_blank">
-                            <i className="fab fa-twitter text-primary" /> Twitter
-                        </button>
+                        <a
+                            className="btn-lg btn-link"
+                            href={tweetUrl}
+                            target="_blank"
+                            rel="noreferrer">
+                            <FontAwesomeIcon
+                                icon={faTwitter}
+                                className="text-primary mr-10"
+                                style={{ width: 20 }}
+                            />
+                            Twitter
+                        </a>
                         <a
                             className="btn-lg btn-link"
                             href={facebookUrl}
                             target="_blank"
                             rel="noreferrer">
-                            <i className="fab fa-facebook text-primary" /> Facebook
+                            <FontAwesomeIcon
+                                icon={faFacebook}
+                                className="text-primary mr-10"
+                                style={{ width: 20 }}
+                            />
+                            Facebook
                         </a>
                     </div>
                 </div>

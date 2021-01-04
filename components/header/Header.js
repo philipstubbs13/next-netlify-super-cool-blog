@@ -26,6 +26,11 @@ export default function Header({ toggleDarkMode, isDarkMode }) {
                                 <button className="navbar-brand btn btn-link">About</button>
                             </Link>
                         </div>
+                        <div className="mr-20">
+                            <Link href="/contribute">
+                                <button className="navbar-brand btn btn-link">Contribute</button>
+                            </Link>
+                        </div>
                     </div>
                 </nav>
             </header>
