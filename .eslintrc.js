@@ -1,3 +1,4 @@
+// https://dev.to/onygami/eslint-and-prettier-for-react-apps-bonus-next-js-and-typescript-3e46
 module.exports = {
     root: true, // Make sure eslint picks up the config at the root of the directory
     parser: '@typescript-eslint/parser',
