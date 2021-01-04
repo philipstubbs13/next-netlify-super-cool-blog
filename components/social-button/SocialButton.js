@@ -13,5 +13,5 @@ export default function SocialButton({ url, icon }) {
 
 SocialButton.propTypes = {
     url: PropTypes.string.isRequired,
-    icon: PropTypes.node.isRequired
+    icon: PropTypes.object.isRequired
 };
