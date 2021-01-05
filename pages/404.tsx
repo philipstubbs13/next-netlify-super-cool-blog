@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
 // https://dev.to/netlify/making-a-custom-404-page-in-next-js-16bc
+// @ts-nocheck
 import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
