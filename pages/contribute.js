@@ -1,9 +1,9 @@
-/* eslint-disable jsx-a11y/anchor-has-content */
 /* eslint-disable prettier/prettier */
 // @ts-nocheck
 import React from 'react';
 import PropTypes from 'prop-types';
 import Layout from '@components/layout/Layout';
+import HelpTopic from '@components/help-topic/HelpTopic';
 
 const Contribute = ({ title, description }) => {
     return (
@@ -46,9 +46,9 @@ const Contribute = ({ title, description }) => {
                             </li>
                         </ul>
 
-                        <section className="border-top" style={{ marginTop: 50 }}>
-                            <a name="download-code"></a>
-                            <h3>Download the source code for this website.</h3>
+                        <HelpTopic
+                            anchorTag="download-code"
+                            topicTitle="Download the source code for this website.">
                             <p>
                                 To be able to contribute as a writer or developer of this site, you
                                 will need to download the source code for the site to a local
@@ -91,11 +91,9 @@ const Contribute = ({ title, description }) => {
                                     directory in which you ran this command.
                                 </li>
                             </ol>
-                        </section>
+                        </HelpTopic>
 
-                        <section className="border-top" style={{ marginTop: 50 }}>
-                            <a name="create-post"></a>
-                            <h3>Create a post</h3>
+                        <HelpTopic anchorTag="create-post" topicTitle="Create a post">
                             <p>Perform the following steps to create a post.</p>
                             <ol>
                                 <li>
@@ -151,11 +149,9 @@ const Contribute = ({ title, description }) => {
                                     </p>
                                 </li>
                             </ol>
-                        </section>
+                        </HelpTopic>
 
-                        <section className="border-top" style={{ marginTop: 50 }}>
-                            <a name="preview-post"></a>
-                            <h3>Preview a post</h3>
+                        <HelpTopic anchorTag="preview-post" topicTitle="Preview a post">
                             <p>
                                 After you have created a post, it is a good idea and highly
                                 recommended to preview your post to make sure everything looks good
@@ -211,11 +207,9 @@ const Contribute = ({ title, description }) => {
                                     </p>
                                 </li>
                             </ol>
-                        </section>
+                        </HelpTopic>
 
-                        <section className="border-top" style={{ marginTop: 50 }}>
-                            <a name="submit-review"></a>
-                            <h3>Submit for review</h3>
+                        <HelpTopic anchorTag="submit-review" topicTitle="Submit for review">
                             <p>
                                 After you have created a post, previewed it, and you are satisfied
                                 with it, follow these steps to get your changes published:
@@ -249,7 +243,7 @@ const Contribute = ({ title, description }) => {
                                     the site and that there are no bugs.
                                 </li>
                             </ol>
-                        </section>
+                        </HelpTopic>
                     </div>
                 </div>
             </div>
