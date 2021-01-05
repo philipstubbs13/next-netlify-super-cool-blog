@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 // @ts-nocheck
-import { connectToDatabase } from '@utils/mongodb';
+import { connectToDatabase } from '../../utils/mongodb';
 import nextConnect from 'next-connect';
 
 const handler = nextConnect();
