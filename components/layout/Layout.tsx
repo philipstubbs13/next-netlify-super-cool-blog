@@ -1,5 +1,3 @@
-/* eslint-disable prettier/prettier */
-// @ts-nocheck
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
@@ -10,6 +8,12 @@ import { initGA, logPageView } from '../../utils/analytics';
 export interface IProps {
   children: ReturnType<typeof React.ReactNode>;
   pageTitle: String;
+}
+
+declare global {
+  export interface Window {
+    GA_INITIALIZED: boolean;
+  }
 }
 
 export const Layout = (props: IProps) => {
