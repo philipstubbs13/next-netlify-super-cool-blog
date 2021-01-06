@@ -1,5 +1,3 @@
-// @ts-nocheck
-import React from 'react';
 import PropTypes from 'prop-types';
 import { Post } from '../post/Post';
 
@@ -44,7 +42,7 @@ export const PostList = (props: IProps) => {
                 title={post.frontmatter.title}
                 author={post.frontmatter.author}
                 slug={post.slug}
-                key={post.slug}
+                key={post.slug as string}
                 tags={tags}
                 date={post.frontmatter.date}
                 markdownBody={post.markdownBody}

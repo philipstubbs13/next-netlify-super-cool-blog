@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import { Header } from '@components/header/Header';
@@ -6,7 +6,7 @@ import { Footer } from '@components/footer/Footer';
 import { initGA, logPageView } from '../../utils/analytics';
 
 export interface IProps {
-  children: ReturnType<typeof React.ReactNode>;
+  children: any;
   pageTitle: String;
 }
 

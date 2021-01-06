@@ -1,12 +1,11 @@
-// @ts-nocheck
-import React from 'react';
+/* eslint-disable no-unused-vars */
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 export interface IProps {
-  handleChange: () => void;
-  handleSubmit: () => void;
+  handleChange: (event: any) => void;
+  handleSubmit: (event: any) => void;
   placeholder: any;
 }
 

@@ -1,7 +1,6 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable jsx-a11y/anchor-has-content */
 // @ts-nocheck
-import React from 'react';
 import PropTypes from 'prop-types';
 
 export interface IProps {
