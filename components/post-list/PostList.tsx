@@ -39,13 +39,13 @@ export const PostList = (props: IProps) => {
 
             return (
               <Post
-                title={post.frontmatter.title}
                 author={post.frontmatter.author}
-                slug={post.slug}
-                key={post.slug as string}
-                tags={tags}
                 date={post.frontmatter.date}
+                key={post.slug as string}
                 markdownBody={post.markdownBody}
+                slug={post.slug}
+                tags={tags}
+                title={post.frontmatter.title}
               />
             );
           })}

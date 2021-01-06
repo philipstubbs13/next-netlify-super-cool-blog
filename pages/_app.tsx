@@ -3,19 +3,22 @@ import '@components/search-filter/SearchFilter.css';
 import './contribute.css';
 
 export interface IProps {
-  frontmatter: {
-    author: String;
-    date: String;
-    tags: String;
-    title: String;
+  Component: any;
+  pageProps: {
+    frontmatter: {
+      author: String;
+      date: String;
+      tags: String;
+      title: String;
+    };
+    markdownBody: String;
+    postname: String;
+    siteTitle: String;
   };
-  markdownBody: String;
-  postname: String;
-  siteTitle: String;
 }
 
-export default function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+export default function MyApp(props: IProps) {
+  return <props.Component {...props.pageProps} />;
 }
 
 MyApp.propTypes = {

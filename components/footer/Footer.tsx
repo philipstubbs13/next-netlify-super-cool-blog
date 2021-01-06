@@ -1,6 +1,4 @@
-// @ts-nocheck
 import PropTypes from 'prop-types';
-import Link from 'next/link';
 import {
   faTiktok,
   faTwitter,
@@ -10,6 +8,7 @@ import {
   faInstagram,
 } from '@fortawesome/free-brands-svg-icons';
 import { SocialButton } from '../social-button/SocialButton';
+import { NavLink } from '@components/nav-link/NavLink';
 
 export interface IProps {
   isDarkMode: boolean;
@@ -26,15 +25,9 @@ export const Footer = (props: IProps) => {
     <div className={containerClasses}>
       <nav className="navbar navbar-fixed-bottom h-50">
         <div className="navbar-content">
-          <Link href="/">
-            <button className="btn-link btn btn-lg mr-5">Home</button>
-          </Link>
-          <Link href="/about">
-            <button className="btn-link btn btn-lg mr-5">About</button>
-          </Link>
-          <Link href="/contribute">
-            <button className="btn-link btn btn-lg mr-5">Contribute</button>
-          </Link>
+          <NavLink slug="/" title="Home" />
+          <NavLink slug="/about" title="About" />
+          <NavLink slug="/contribute" title="Contribute" />
         </div>
         <div className="ml-auto">
           <SocialButton url="https://www.tiktok.com/@thephilstubbs" icon={faTiktok} />

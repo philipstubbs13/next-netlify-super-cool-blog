@@ -1,6 +1,6 @@
 // @ts-nocheck
 import PropTypes from 'prop-types';
-import Link from 'next/link';
+import { NavLink } from '@components/nav-link/NavLink';
 import matter from 'gray-matter';
 import ReactMarkdown from 'react-markdown';
 import { faTwitter, faFacebook } from '@fortawesome/free-brands-svg-icons';
@@ -32,9 +32,7 @@ const BlogPost = (props: IProps) => {
   return (
     <Layout pageTitle={`${props.siteTitle} | ${props.frontmatter.title}`}>
       <div className="container-md mt-20">
-        <Link href="/">
-          <button className="btn btn-link btn-lg px-0">Back to posts</button>
-        </Link>
+        <NavLink slug="/" title="Back to posts" />
         <article>
           <h1>{props.frontmatter.title}</h1>
           <p>By {props.frontmatter.author}</p>
