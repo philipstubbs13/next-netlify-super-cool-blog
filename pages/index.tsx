@@ -54,10 +54,10 @@ const Index = (props: IProps) => {
       <main>
         <div className="container-fluid">
           <div className="row">
-            <div className="col-8">
+            <div className="col-sm-12 col-lg-8">
               <PostList posts={filteredPosts} searchTerm={searchTerm} />
             </div>
-            <div className="col-4">
+            <div className="col-sm-12 col-lg-4">
               <div className="card">
                 <h2 className="card-title">Search</h2>
                 <SearchFilter

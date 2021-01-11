@@ -39,7 +39,7 @@ export const Layout = (props: IProps) => {
       </Head>
       <section className="layout">
         <Header toggleDarkMode={() => setIsDarkMode(!isDarkMode)} isDarkMode={isDarkMode} />
-        <div>{props.children}</div>
+        <div className="p-20">{props.children}</div>
       </section>
       <Footer isDarkMode={isDarkMode} />
     </div>

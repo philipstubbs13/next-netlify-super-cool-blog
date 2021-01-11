@@ -24,7 +24,7 @@ export const Footer = (props: IProps) => {
   return (
     <div className={containerClasses}>
       <nav className="navbar navbar-fixed-bottom h-50">
-        <div className="navbar-content">
+        <div className="navbar-content d-none d-md-block">
           <NavLink slug="/" title="Home" />
           <NavLink slug="/about" title="About" />
           <NavLink slug="/contribute" title="Contribute" />

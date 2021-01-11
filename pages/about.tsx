@@ -16,7 +16,10 @@ const About = (props: IProps) => {
           </div>
         </div>
         <div className="row">
-          <div className="col-8 pr-10">
+          <div className="col-sm-12 col-md-3 pr-10">
+            <img src="/profile.jpg" alt="profile" className="img-fluid rounded" width={200} />
+          </div>
+          <div className="col-sm-12 col-md-9">
             <p>
               Well hello there! Welcome to my blog. My name is Phil Stubbs, and I am happy you
               stopped by to check out what I have been up to. I created this blog to share and
@@ -61,9 +64,6 @@ const About = (props: IProps) => {
               football and basketball), tweeting commentary about sports games I watch, and playing
               video games (mainly NBA2K and Madden).
             </p>
-          </div>
-          <div className="col-4">
-            <img src="/profile.jpg" alt="profile" className="img-fluid rounded" width={200} />
           </div>
         </div>
       </div>

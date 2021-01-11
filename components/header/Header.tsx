@@ -15,7 +15,7 @@ export const Header = (props: IProps) => {
     <header className="header">
       <nav className="navbar">
         <NavLink slug="/" title="chillin' with phil" />
-        <div className="ml-auto d-flex">
+        <div className="ml-auto d-flex align-items-center">
           <button className="btn mr-20" onClick={props.toggleDarkMode}>
             <FontAwesomeIcon icon={toggleModeButtonIcon} style={{ width: 15 }} />
           </button>

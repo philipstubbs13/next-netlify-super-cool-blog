@@ -117,8 +117,8 @@ const Contribute = (props: IProps) => {
                 <li>
                   Inside the newly created <code className="code">.md</code> file , copy and paste
                   the starter code from{' '}
-                  <code className="code">next-netlify-blog/posts/example-post.md</code> into your
-                  new file.
+                  <code className="code">next-netlify-blog/example-post/example-post.md</code> into
+                  your new file.
                   <p>
                     This is the template for writing a blog post for this site. If you follow this
                     template, you should have no problem contributing and getting a post added.
@@ -180,7 +180,7 @@ const Contribute = (props: IProps) => {
                   <code className="code">http://localhost:3000/post/example-post</code>
                   <p>
                     Where <code className="code">example-post</code> is the name of the{' '}
-                    <code className="code">md</code> file you created.
+                    <code className="code">.md</code> file you created.
                   </p>
                 </li>
               </ol>
