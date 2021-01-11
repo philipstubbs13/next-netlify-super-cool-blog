@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
+import { faSun, faMoon, faBars } from '@fortawesome/free-solid-svg-icons';
 import { NavLink } from '@components/nav-link/NavLink';
 
 export interface IProps {
@@ -19,8 +19,27 @@ export const Header = (props: IProps) => {
           <button className="btn mr-20" onClick={props.toggleDarkMode}>
             <FontAwesomeIcon icon={toggleModeButtonIcon} style={{ width: 15 }} />
           </button>
-          <NavLink slug="/about" title="About" />
-          <NavLink slug="/contribute" title="Contribute" />
+          <div className="hidden-sm-and-down">
+            <NavLink slug="/about" title="About" />
+          </div>
+          <div className="hidden-sm-and-down">
+            <NavLink slug="/contribute" title="Contribute" />
+          </div>
+          <li className="nav-item dropdown with-arrow hidden-md-and-up d-xs-block d-sm-block">
+            <a className="nav-link" data-toggle="dropdown" id="nav-link-dropdown-toggle">
+              <FontAwesomeIcon icon={faBars} className="text-primary mr-20" style={{ width: 20 }} />
+            </a>
+            <div
+              className="dropdown-menu dropdown-menu-right"
+              aria-labelledby="nav-link-dropdown-toggle">
+              <div className="dropdown-item">
+                <NavLink slug="/about" title="About" />
+              </div>
+              <div className="dropdown-item">
+                <NavLink slug="/contribute" title="Contribute" />
+              </div>
+            </div>
+          </li>
         </div>
       </nav>
     </header>

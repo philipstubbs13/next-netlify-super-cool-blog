@@ -11,7 +11,7 @@ export interface IProps {
 export const NavLink = (props: IProps) => {
   return (
     <Link href={props.slug}>
-      <a className="btn-link btn btn-lg mr-5">{props.title}</a>
+      <a className="btn-link btn-lg mr-5 pl-0">{props.title}</a>
     </Link>
   );
 };
