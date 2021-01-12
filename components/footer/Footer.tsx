@@ -40,7 +40,7 @@ export const Footer = (props: IProps) => {
             aria-expanded="false">
             Connect With Me
           </button>
-          <div className="dropdown-menu d-flex" aria-labelledby="...">
+          <div className="dropdown-menu d-flex">
             <SocialButton url={SocialLinks.Tiktok} icon={faTiktok} />
             <SocialButton url={SocialLinks.Twitter} icon={faTwitter} />
             <SocialButton url={SocialLinks.Linkedin} icon={faLinkedin} />
