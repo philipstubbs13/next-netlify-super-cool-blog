@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSun, faMoon, faBars } from '@fortawesome/free-solid-svg-icons';
 import { NavLink } from '@components/nav-link/NavLink';
+import { BLOG_TITLE, PageTitles, PageRoutes } from '../../constants';
 
 export interface IProps {
   isDarkMode: boolean;
@@ -14,16 +15,16 @@ export const Header = (props: IProps) => {
   return (
     <header className="header">
       <nav className="navbar">
-        <NavLink slug="/" title="chillin' with phil" />
+        <NavLink slug={PageRoutes.Home} title={BLOG_TITLE} />
         <div className="ml-auto d-flex align-items-center">
           <button className="btn mr-20" onClick={props.toggleDarkMode}>
             <FontAwesomeIcon icon={toggleModeButtonIcon} style={{ width: 15 }} />
           </button>
           <div className="hidden-sm-and-down">
-            <NavLink slug="/about" title="About" />
+            <NavLink slug={PageRoutes.About} title="About" />
           </div>
           <div className="hidden-sm-and-down">
-            <NavLink slug="/contribute" title="Contribute" />
+            <NavLink slug={PageRoutes.Contribute} title="Contribute" />
           </div>
           <li className="nav-item dropdown with-arrow hidden-md-and-up d-xs-block d-sm-block">
             <a className="nav-link" data-toggle="dropdown" id="nav-link-dropdown-toggle">
@@ -33,10 +34,10 @@ export const Header = (props: IProps) => {
               className="dropdown-menu dropdown-menu-right"
               aria-labelledby="nav-link-dropdown-toggle">
               <div className="dropdown-item">
-                <NavLink slug="/about" title="About" />
+                <NavLink slug={PageRoutes.About} title={PageTitles.About} />
               </div>
               <div className="dropdown-item">
-                <NavLink slug="/contribute" title="Contribute" />
+                <NavLink slug={PageRoutes.Contribute} title={PageTitles.Contribute} />
               </div>
             </div>
           </li>

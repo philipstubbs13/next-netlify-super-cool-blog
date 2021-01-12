@@ -5,6 +5,7 @@ import matter from 'gray-matter';
 import { Layout } from '@components/layout/Layout';
 import { PostList } from '@components/post-list/PostList';
 import { SearchFilter } from '@components/search-filter/SearchFilter';
+import { BLOG_TITLE } from '../constants';
 
 export interface IProps {
   description: String;
@@ -43,7 +44,7 @@ const Index = (props: IProps) => {
         <div className="card">
           <div className="row">
             <div className="col-12">
-              <h1 className="title">chillin&apos; with phil</h1>
+              <h1 className="title">{BLOG_TITLE}</h1>
             </div>
             <div className="col-12">
               <p className="description">{props.description}</p>

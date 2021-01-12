@@ -9,6 +9,7 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import { SocialButton } from '../social-button/SocialButton';
 import { NavLink } from '@components/nav-link/NavLink';
+import { BLOG_TITLE, PageTitles, PageRoutes, SocialLinks } from '../../constants';
 
 export interface IProps {
   isDarkMode: boolean;
@@ -19,23 +20,34 @@ export const Footer = (props: IProps) => {
     ? 'page-wrapper with-navbar-fixed-bottom dark-mode'
     : 'page-wrapper with-navbar-fixed-bottom';
   const copyrightYear = new Date().getFullYear();
-  const copyrightText = `${copyrightYear} chillin' with phil`;
+  const copyrightText = `${copyrightYear} ${BLOG_TITLE}`;
 
   return (
     <div className={containerClasses}>
       <nav className="navbar navbar-fixed-bottom h-50">
         <div className="navbar-content d-none d-md-block">
-          <NavLink slug="/" title="Home" />
-          <NavLink slug="/about" title="About" />
-          <NavLink slug="/contribute" title="Contribute" />
+          <NavLink slug={PageRoutes.Home} title={PageTitles.Home} />
+          <NavLink slug={PageRoutes.About} title={PageTitles.About} />
+          <NavLink slug={PageRoutes.Contribute} title={PageTitles.Contribute} />
         </div>
-        <div className="ml-auto">
-          <SocialButton url="https://www.tiktok.com/@thephilstubbs" icon={faTiktok} />
-          <SocialButton url="https://twitter.com/iamPhilStubbs" icon={faTwitter} />
-          <SocialButton url="https://www.linkedin.com/in/philipjstubbs/" icon={faLinkedin} />
-          <SocialButton url="https://github.com/philipstubbs13" icon={faGithub} />
-          <SocialButton url="https://www.instagram.com/philipstubbs13/" icon={faInstagram} />
-          <SocialButton url="https://www.facebook.com/phil.stubbs.13" icon={faFacebook} />
+        <div className="ml-auto dropdown dropup with-arrow">
+          <button
+            className="btn"
+            data-toggle="dropdown"
+            type="button"
+            id="social-links-dropdown"
+            aria-haspopup="true"
+            aria-expanded="false">
+            Connect With Me
+          </button>
+          <div className="dropdown-menu d-flex" aria-labelledby="...">
+            <SocialButton url={SocialLinks.Tiktok} icon={faTiktok} />
+            <SocialButton url={SocialLinks.Twitter} icon={faTwitter} />
+            <SocialButton url={SocialLinks.Linkedin} icon={faLinkedin} />
+            <SocialButton url={SocialLinks.Github} icon={faGithub} />
+            <SocialButton url={SocialLinks.Instagram} icon={faInstagram} />
+            <SocialButton url={SocialLinks.Facebook} icon={faFacebook} />
+          </div>
         </div>
         <span className="navbar-text ml-auto">&copy; {copyrightText}</span>
       </nav>
